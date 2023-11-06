@@ -1,6 +1,5 @@
 package ru.charushnikov.studentmagazine.servlet.student;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import ru.charushnikov.studentmagazine.dao.StudentDAO;
 import ru.charushnikov.studentmagazine.dao.StudentDAOImpl;
 import ru.charushnikov.studentmagazine.entity.Student;
@@ -9,14 +8,10 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 @WebServlet(name = "StudentCreateServlet", value = "/student/add")
-public class StudentCreateServlet extends HttpServlet {
+public class CreateStudentServlet extends HttpServlet {
     private final StudentDAO studentDAO = new StudentDAOImpl();
 
     @Override
