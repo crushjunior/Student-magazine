@@ -22,6 +22,7 @@ public class StudentDAOImpl implements StudentDAO{
         try (Connection connection = DBConnection.toConnectDB()) {
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_QUERY);
             preparedStatement.setString(1, student.getName());
+            preparedStatement.executeUpdate();
             preparedStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -76,6 +77,7 @@ public class StudentDAOImpl implements StudentDAO{
             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_QUERY);
             preparedStatement.setString(1, student.getName());
             preparedStatement.setInt(2, student.getId());
+            preparedStatement.executeUpdate();
             preparedStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -88,6 +90,7 @@ public class StudentDAOImpl implements StudentDAO{
         try (Connection connection = DBConnection.toConnectDB()) {
             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_QUERY);
             preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
             preparedStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();

@@ -21,6 +21,7 @@ public class ProjectDAOImpl implements ProjectDAO{
         try (Connection connection = DBConnection.toConnectDB()) {
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_QUERY);
             preparedStatement.setString(1, project.getName());
+            preparedStatement.executeUpdate();
             preparedStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -34,6 +35,7 @@ public class ProjectDAOImpl implements ProjectDAO{
             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_QUERY);
             preparedStatement.setString(1, project.getName());
             preparedStatement.setInt(2, project.getId());
+            preparedStatement.executeUpdate();
             preparedStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -87,6 +89,7 @@ public class ProjectDAOImpl implements ProjectDAO{
         try (Connection connection = DBConnection.toConnectDB()) {
             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_QUERY);
             preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
             preparedStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();

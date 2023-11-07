@@ -9,13 +9,13 @@ import java.util.List;
 public interface TaskDAO {
     void createTask(Task task) throws SQLException;
 
-    Task getTask(int id);
+    Task getTask(int id) throws SQLException;
 
-    List<Task> getAllTasks();
+    List<Task> getAllTasks() throws SQLException;
 
     List<Task> getAllTasksByProjectId(int projectId) throws SQLException;
 
-    void updateTask(Task task);
+    void updateTask(Task task) throws SQLException;
 
-    void deleteTask(int id);
+    void deleteTask(int id) throws SQLException;
 }
